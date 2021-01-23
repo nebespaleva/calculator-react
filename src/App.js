@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Input from './components/Input';
+import Button from './components/Button';
+import Clear from './components/Clear'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+    }
+  }
+
+  
+
+  render() {
+    return (
+      <div className='App'>
+		<div className='calc-wrapper'>
+			<div className='row'>
+				<Input></Input>
+			</div>
+			<div className='row'>
+				<Button>9</Button>
+				<Button>8</Button>
+				<Button>7</Button>
+				<Button>/</Button>
+			</div>
+			<div className='row'>
+				<Button>6</Button>
+				<Button>5</Button>
+				<Button>4</Button>
+				<Button>*</Button>
+			</div>
+			<div className='row'>
+				<Button>3</Button>
+				<Button>2</Button>
+				<Button>1</Button>
+				<Button>+</Button>
+			</div>
+			<div className='row'>
+				<Button>.</Button>
+				<Button>0</Button>
+				<Button>=</Button>
+				<Button>-</Button>
+			</div>
+			<div className='row'>
+				<Clear>Clear</Clear>
+			</div>
+		</div>
+      </div>
+    );
+  }
 }
-
-export default App;
