@@ -5,7 +5,7 @@ function Clear(props) {
 	return (
 		<div 
 			className='clear'
-			onClick={() => props.clearInput()}>
+			onClick={() => props.handleClear()}>
 			{props.children}
 		</div>
 	)

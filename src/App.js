@@ -43,6 +43,53 @@ export default class App extends Component {
 	  })
   }
 
+  divide = () => {
+	  this.state.previosNumber = this.state.input;
+	  this.setState({input: ""});
+	  this.state.operator = 'divide';
+  }
+
+  substraction = () => {
+	this.state.previosNumber = this.state.input;
+	this.setState({input: ""});
+	this.state.operator = 'substract';
+}
+
+multiply = () => {
+	this.state.previosNumber = this.state.input;
+	this.setState({input: ""});
+	this.state.operator = 'multiply';
+}
+
+add = () => {
+	this.state.previosNumber = this.state.input;
+	this.setState({input: ""});
+	this.state.operator = 'add';
+}
+
+
+  evaluate = () => {
+	  this.state.currentNumber = this.state.input;
+	if(this.state.operator == 'substract') {
+		this.setState({
+			input: parseInt(this.state.previosNumber) - parseInt(this.state.currentNumber)
+		})
+	} else if (this.state.operator == 'divide') {
+		this.setState({
+			input: parseInt(this.state.previosNumber) / parseInt(this.state.currentNumber)
+		})
+	} else if (this.state.operator == 'multiply') {
+		this.setState({
+			input: parseInt(this.state.previosNumber) * parseInt(this.state.currentNumber)
+		})
+	} else if (this.state.operator == 'add') {
+		this.setState({
+			input: parseInt(this.state.previosNumber) + parseInt(this.state.currentNumber)
+		})
+	}
+  }
+
+
   render() {
 	  const {input} = this.state;
     return (
@@ -58,7 +105,8 @@ export default class App extends Component {
 					handleClick={this.addToInput}>8</Button>
 				<Button
 					handleClick={this.addToInput}>7</Button>
-				<Button>/</Button>
+				<Button
+					handleClick={this.divide}>/</Button>
 			</div>
 			<div className='row'>
 				<Button
@@ -67,7 +115,8 @@ export default class App extends Component {
 					handleClick={this.addToInput}>5</Button>
 				<Button
 					handleClick={this.addToInput}>4</Button>
-				<Button>*</Button>
+				<Button
+					handleClick={this.multiply}>*</Button>
 			</div>
 			<div className='row'>
 				<Button
@@ -76,19 +125,22 @@ export default class App extends Component {
 					handleClick={this.addToInput}>2</Button>
 				<Button
 					handleClick={this.addToInput}>1</Button>
-				<Button>+</Button>
+				<Button
+					handleClick={this.add}>+</Button>
 			</div>
 			<div className='row'>
 				<Button
 					handleClick={this.addDecimal}>.</Button>
 				<Button
 					handleClick={this.addZeroToInput}>0</Button>
-				<Button>=</Button>
-				<Button>-</Button>
+				<Button
+					handleClick={this.evaluate}>=</Button>
+				<Button 
+					handleClick={this.substraction}>-</Button>
 			</div>
 			<div className='row'>
 				<Clear
-					handleClear={this.handleClear}>Clear</Clear>
+					handleClear={this.clearInput}>Clear</Clear>
 			</div>
 		</div>
       </div>
